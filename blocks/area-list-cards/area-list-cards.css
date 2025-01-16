@@ -1,14 +1,12 @@
-.area-list-cards.block{
-    &.overlay{
 
-        > ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-            grid-gap: 24px;
-        }
+.area-list-cards.block{
+    > ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+        grid-gap: 24px;
 
         > li {
             border: 1px solid #dadada;
@@ -24,7 +22,9 @@
                 object-fit: cover;
             }
         }
+    }
 
+    &.overlay{
         .cards-card-body {
             margin: 16px;
             position: absolute;
@@ -34,14 +34,14 @@
             margin: auto;
             font-size: 24px;
         }
-        .cards-card-image {
-            line-height: 0;
-        }
-
-          
-
     }
+
+    .cards-card-image {
+        line-height: 0;
+    }
+
 }
+
   
 .default-content-wrapper {
     display: flex;

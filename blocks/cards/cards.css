@@ -1,27 +1,75 @@
-.cards > ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
+
+.cards.block{
+  > ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      row-gap: 24px;
+
+      @media (width >= 768px) {
+          flex-direction: row;
+          column-gap: 24px;
+          row-gap: 0;
+      }
+
+      > li {
+          border: 1px solid #dadada;
+          background-color: var(--background-color);
+          text-align: center;
+          position: relative;
+          color: #ffffff;
+          border: 5px solid #fff;
+
+          img {
+              width: 100%;
+              aspect-ratio: 4 / 3;
+              object-fit: cover;
+          }
+      }
+  }
+
+  &.overlay{
+      .cards-card-body {
+          margin: 16px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          margin: auto;
+          font-size: 24px;
+      }
+  }
+
+  .cards-card-image {
+      line-height: 0;
+  }
+
 }
 
-.cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+
+.default-content-wrapper {
+  display: flex;
+  column-gap: 24px;
+
+  .button-container a.button {
+      background-color: #fff;
+      color: #388ce1;
+      font-size: 11px;
+      padding: 12px;
+      border-radius: 0px;
+  }
 }
 
-.cards .cards-card-body {
-  margin: 16px;
+body.holidays.appear {
+  background: #e9ebee;
 }
 
-.cards .cards-card-image {
-  line-height: 0;
+h3 {
+  color: #525f6a;
 }
 
-.cards > ul > li img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+h3:hover {
+  text-decoration: underline;
 }

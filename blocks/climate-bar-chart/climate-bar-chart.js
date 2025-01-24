@@ -8,12 +8,10 @@ export default async function decorate(block) {
 
   const location = block.querySelector("p");
 
-  if (!formContent || !location) return;
+  if ( !formContent || !location ) return;
 
-  console.log(location);
-  
   // Extract location temperature data
-  const locationHighTemps = extractLocationData(formContent,location);
+  const locationHighTemps = extractLocationData(formContent, location);
 
   // Pass the location data to the bar chart function
   populateBarChart(locationHighTemps, block);
@@ -23,15 +21,15 @@ export default async function decorate(block) {
 function extractLocationData(data,location) {
 
   const months = [
-    "Jan", "Feb", "March", "April", "May", "June",
-    "July", "Aug", "Sept", "Oct", "Nov", "Dec"
+    'Jan', 'Feb', 'March', 'April', 'May', 'June',
+    'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
   ];
 
   // Find the location column index
   const locationIndex = data.columns.indexOf(location.innerText);
 
   if (locationIndex === -1) {
-    console.error("location data not found in the dataset");
+    console.error('location data not found in the dataset');
     return [];
   }
 

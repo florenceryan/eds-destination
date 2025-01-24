@@ -1,6 +1,3 @@
-const location = block.querySelector("p");
-
-
 export default async function decorate(block) {
   const formContent = await fetch('average-weather.json')
     .then((res) => res.json())
@@ -9,19 +6,21 @@ export default async function decorate(block) {
       return null;
     });
 
+  const location = block.querySelector("p");
+
   if (!formContent || !location) return;
 
   console.log(location);
   
   // Extract location temperature data
-  const locationHighTemps = extractLocationData(formContent);
+  const locationHighTemps = extractLocationData(formContent,location);
 
   // Pass the location data to the bar chart function
   populateBarChart(locationHighTemps, block);
 }
 
 // Extract location temperature data from the weather data
-function extractLocationData(data) {
+function extractLocationData(data,location) {
 
   const months = [
     "Jan", "Feb", "March", "April", "May", "June",
@@ -73,7 +72,7 @@ function populateBarChart(data, container) {
 
   // Create the chart container
   const chartContainer = document.createElement('div');
-  chartContainer.classList.add('climate-bar-chart-container');
+  chartContainer.classList.add('chart-container');
   container.appendChild(chartContainer);
 
   // Create bars for the temperature data
